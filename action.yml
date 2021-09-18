@@ -15,3 +15,4 @@ runs:
       with:
         path: ~/.ccache
         key: ${{ inputs.key }}
+      shell: bash
