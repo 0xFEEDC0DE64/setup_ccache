@@ -1,0 +1,17 @@
+name: Setup ccache
+description: Installs and sets up ccache
+inputs:
+  key:
+    description: An explicit key for restoring and saving the cache
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Install ccache
+      run: DEBIAN_FRONTEND=noninteractive sudo apt install -y ccache
+
+    - name: Cache ccache
+      uses: 0xFEEDC0DE64/cache-with-update@update-cache-on-cachehit
+      with:
+        path: ~/.ccache
+        key: ${{ inputs.key }}
