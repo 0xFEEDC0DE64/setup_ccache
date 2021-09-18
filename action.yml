@@ -9,10 +9,10 @@ runs:
   steps:
     - name: Install ccache
       run: DEBIAN_FRONTEND=noninteractive sudo apt install -y ccache
+      shell: bash
 
     - name: Cache ccache
       uses: 0xFEEDC0DE64/cache-with-update@update-cache-on-cachehit
       with:
         path: ~/.ccache
         key: ${{ inputs.key }}
-      shell: bash
